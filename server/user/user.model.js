@@ -31,6 +31,13 @@ const UserSchema = new mongoose.Schema({
   politicalParty: {
     type: String
   },
+  isCongressPerson: {
+    type: Boolean,
+    default: false
+  },
+  publicLifeStartingDate: {
+    type: Date
+  },
   createdAt: {
     type: Date,
     default: Date.now
