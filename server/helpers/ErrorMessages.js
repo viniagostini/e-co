@@ -8,4 +8,8 @@ module.exports = {
   //auth
   INVALID_EMAIL_OR_PASSWORD: 'Email ou senha incorretos.',
   FORBIDDEN_DEFAULT: 'Desculpe, você não pode fazer isso.',
+
+  //comission
+  DUPLICATED_COMISSION_NAME: 'Já existe uma comissão com esse nome.',
+  NOT_CONGRESSPERSON_IN_COMISSION: 'Só políticos são permitidos no cadastro de comissões.'
 };
