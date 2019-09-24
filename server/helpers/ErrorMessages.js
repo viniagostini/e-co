@@ -6,7 +6,7 @@ module.exports = {
   PUBLIC_LIFE_STARTING_DATE_IN_FUTURE: 'Não é permitido o cadastro de datas de inicio de vida publica futuras.',
 
   //auth
-  INVALID_EMAIL_OR_PASSWORD: 'Email ou senha incorretos.',
+  INVALID_EMAIL_OR_PASSWORD: 'DNI ou senha incorretos.',
   FORBIDDEN_DEFAULT: 'Desculpe, você não pode fazer isso.',
 
   //comission

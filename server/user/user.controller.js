@@ -85,7 +85,7 @@ const updateUser = async (req, res, next) => {
 const create = async (req, res, next) => {
   try {
     const userData = pick([
-      'name', 'dni', 'state', 'interests', 'politicalParty'
+      'name', 'dni', 'password', 'state', 'interests', 'politicalParty'
     ], req.body)
 
     const {
