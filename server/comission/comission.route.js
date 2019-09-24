@@ -9,7 +9,9 @@ const router = express.Router()
 
 router
   .route('/')
-  /** POST /api/user - Create new user */
+  /** POST /api/comission - Create new comission */
   .post(validate(paramValidation.createComission), comissionCtrl.create)
+
+  .get(comissionCtrl.getAll)
 
 module.exports = router

@@ -36,6 +36,22 @@ const create = async (req, res, next) => {
   }
 }
 
+/**
+ * Get all comissions ordered by name
+ */
+const getAll = async (req, res, next) => {
+  try {
+    const comissions = await Comission.find({})
+      .sort('name')
+      .exec()
+    res.json(comissions)
+  } catch (err) {
+    next(err)
+  }
+}
+
+
 module.exports = {
   create,
+  getAll
 }
