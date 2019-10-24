@@ -44,5 +44,13 @@ const checkUser = (req, res, next) => {
   }
 }
 
+const checkCongressPerson = (req, res, next) => {
+  if (req.user.isCongressPerson) {
+    next()
+  } else {
+    const err = new APIError(ErrorMessages.ONLY_CONGRESSPERSON, httpStatus.UNAUTHORIZED, true)
+    next(err)
+  }
+}
 
-module.exports = { login, checkUser }
+module.exports = { login, checkUser, checkCongressPerson }
