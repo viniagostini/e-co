@@ -8,6 +8,7 @@ module.exports = {
   //auth
   INVALID_EMAIL_OR_PASSWORD: 'DNI ou senha incorretos.',
   FORBIDDEN_DEFAULT: 'Desculpe, você não pode fazer isso.',
+  ONLY_CONGRESSPERSON: 'Apenas Usuários cadastrados como deputados podem realizar essa ação.',
 
   //comission
   DUPLICATED_COMISSION_NAME: 'Já existe uma comissão com esse nome.',
