@@ -13,6 +13,7 @@ const envVarsSchema = Joi.object({
     .description('Mongo DB host url'),
   MONGO_PORT: Joi.number()
     .default(27017),
+  CACHE: Joi.boolean().default(false)
 }).unknown().required()
 
 const {
@@ -31,6 +32,7 @@ const config = {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT
   },
+  cache: envVars.CACHE
 }
 
 module.exports = config

@@ -3,18 +3,41 @@ const {
 } = require('ramda')
 const httpStatus = require('http-status')
 
+const { cache } = require('../../config/config')
+
+const NodeCache = require( "node-cache" )
+const userCache = new NodeCache()
+
 const User = require('./user.model')
 
 const APIError = require('../helpers/APIError')
 const ErrorMessages = require('../helpers/ErrorMessages')
+
+
+const timer = (time) => {
+  return new Promise((res) => {
+    setTimeout(() => {
+      res()
+    }, time)
+  })
+}
 
 /**
  * Load user and append to req.
  */
 const load = async (req, res, next, dni) => {
   try {
-    const user = await User.getByDNI(dni)
-    req.queryUser = user
+    const cachedUser = userCache.get(dni)
+    if (cache && cachedUser) {
+      req.queryUser = cachedUser 
+    } else {
+      await timer(500)
+      const user = await User.getByDNI(dni)
+      req.queryUser = user
+      if (user) {
+        userCache.set(dni, user)
+      }
+    }
     return next()
   } catch (err) {
     next(err)
@@ -70,6 +93,7 @@ const updateUser = async (req, res, next) => {
   })
   try {
     const savedUser = await editedUser.save()
+    userCache.set(savedUser.dni, savedUser)
     res.json(savedUser)
   } catch (err) {
     next(err)
