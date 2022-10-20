@@ -36,7 +36,7 @@
     "http-status": "1.0.1",
     "joi": "10.6.0",
     "jsonwebtoken": "7.1.9",
-    "mongoose": "4.7.4",
+    "mongoose": "4.13.21",
     "morgan": "1.9.1",
     "node-cache": "^5.0.0",
     "ramda": "^0.26.1",
